@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .output {
+            background: white;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            min-height: 40px;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Assignment</h1>
+
+    <!-- Q1 -->
+    <h2>1. Even Numbers from 1 to 100</h2>
+    <button onclick="showEvenNumbers()">Show Even Numbers</button>
+    <div class="output" id="evenOutput"></div>
+
+    <!-- Q2 -->
+    <h2>2. Calculator (Switch Case)</h2>
+    <input type="number" id="num1" placeholder="Enter number 1">
+    <input type="number" id="num2" placeholder="Enter number 2">
+    <input type="text" id="operator" placeholder="Operator (+ - * /)">
+    <br>
+    <button onclick="calculateResult()">Calculate</button>
+    <div class="output" id="calcOutput"></div>
+
+    <!-- Q3 -->
+    <h2>3. Tax Calculation</h2>
+    <input type="number" id="salary" placeholder="Enter salary">
+    <button onclick="calculateTax()">Find Tax</button>
+    <div class="output" id="taxOutput"></div>
+
+    <!-- Q4 -->
+    <h2>4. Sum of Product of Digits</h2>
+    <input type="number" id="n1" placeholder="Enter first number">
+    <input type="number" id="n2" placeholder="Enter second number">
+    <button onclick="findSumOfProducts()">Calculate</button>
+    <div class="output" id="productOutput"></div>
+
+    <script>
+        // Q1: Even Numbers
+        function showEvenNumbers() {
+            let result = "";
+            for (let i = 2; i <= 100; i += 2) {
+                result += i + " ";
+            }
+            document.getElementById("evenOutput").innerText = result;
+        }
+
+        // Q2: Calculator
+        function calculate(num1, num2, operator) {
+            let result;
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+                    break;
+                default:
+                    result = "Invalid operator";
+            }
+            return result;
+        }
+
+        function calculateResult() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let operator = document.getElementById("operator").value;
+
+            let result = calculate(num1, num2, operator);
+            document.getElementById("calcOutput").innerText = result;
+        }
+
+        // Q3: Tax Calculation
+        function findTax(salary) {
+            let tax = 0;
+
+            switch (true) {
+                case (salary > 0 && salary <= 500000):
+                    tax = 0;
+                    break;
+                case (salary > 500000 && salary <= 1000000):
+                    tax = salary * 0.10;
+                    break;
+                case (salary > 1000000 && salary <= 1500000):
+                    tax = salary * 0.20;
+                    break;
+                case (salary > 1500000):
+                    tax = salary * 0.30;
+                    break;
+                default:
+                    tax = "Invalid salary";
+            }
+
+            return tax;
+        }
+
+        function calculateTax() {
+            let salary = Number(document.getElementById("salary").value);
+            let tax = findTax(salary);
+            document.getElementById("taxOutput").innerText = tax;
+        }
+
+        // Q4: Sum of Products of Digits
+        function sumOfProducts(n1, n2) {
+            let sum = 0;
+
+            while (n1 > 0 || n2 > 0) {
+                let d1 = n1 % 10;
+                let d2 = n2 % 10;
+
+                sum += d1 * d2;
+
+                n1 = Math.floor(n1 / 10);
+                n2 = Math.floor(n2 / 10);
+            }
+
+            return sum;
+        }
+
+        function findSumOfProducts() {
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+
+            let result = sumOfProducts(n1, n2);
+            document.getElementById("productOutput").innerText = result;
+        }
+    </script>
+</body>
+</html>

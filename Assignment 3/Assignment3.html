@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Assignment (Q1–Q11)</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .output {
+            background: white;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            min-height: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>JavaScript Assignment (Q1–Q11)</h1>
+
+    <!-- Q1 -->
+    <h2>Q1: Remove states starting with vowels</h2>
+    <button onclick="q1()">Run</button>
+    <div class="output" id="out1"></div>
+
+    <!-- Q2 -->
+    <h2>Q2: Reverse sentence</h2>
+    <button onclick="q2()">Run</button>
+    <div class="output" id="out2"></div>
+
+    <!-- Q3 -->
+    <h2>Q3: INDIA → INDONESIA</h2>
+    <button onclick="q3()">Run</button>
+    <div class="output" id="out3"></div>
+
+    <!-- Q4 -->
+    <h2>Q4: Count vowels & consonants</h2>
+    <button onclick="q4()">Run</button>
+    <div class="output" id="out4"></div>
+
+    <!-- Q5 -->
+    <h2>Q5: Replace wrong word</h2>
+    <button onclick="q5()">Run</button>
+    <div class="output" id="out5"></div>
+
+    <!-- Q6 -->
+    <h2>Q6: Filter numbers > 5</h2>
+    <button onclick="q6()">Run</button>
+    <div class="output" id="out6"></div>
+
+    <!-- Q7 -->
+    <h2>Q7: Average using map & reduce</h2>
+    <button onclick="q7()">Run</button>
+    <div class="output" id="out7"></div>
+
+    <!-- Q8 -->
+    <h2>Q8: Repeated sum of digits</h2>
+    <button onclick="q8()">Run</button>
+    <div class="output" id="out8"></div>
+
+    <!-- Q9 -->
+    <h2>Q9: Count words</h2>
+    <button onclick="q9()">Run</button>
+    <div class="output" id="out9"></div>
+
+    <!-- Q10 -->
+    <h2>Q10: Reverse string</h2>
+    <button onclick="q10()">Run</button>
+    <div class="output" id="out10"></div>
+
+    <!-- Q11 -->
+    <h2>Q11: Average marks (object)</h2>
+    <button onclick="q11()">Run</button>
+    <div class="output" id="out11"></div>
+
+    <script>
+
+        function q1() {
+            const states = ["Andhra Pradesh", "Bihar", "Odisha", "Uttar Pradesh", "Maharashtra", "Assam"];
+            let res = states.filter(s => !['a', 'e', 'i', 'o', 'u'].includes(s[0].toLowerCase()));
+            document.getElementById("out1").innerText = res;
+        }
+
+        function q2() {
+            let str = "I love my India";
+            let res = str.split(" ").reverse().join(" ");
+            document.getElementById("out2").innerText = res;
+        }
+
+        function q3() {
+            let arr = "INDIA".split("");
+            arr.splice(3, 0, 'O', 'N', 'E', 'S');
+            document.getElementById("out3").innerText = arr.join("");
+        }
+
+        function q4() {
+            let str = "This is a simple string example";
+            let v = 0, c = 0;
+
+            for (let ch of str.toLowerCase()) {
+                if (ch >= 'a' && ch <= 'z') {
+                    if ("aeiou".includes(ch)) v++;
+                    else c++;
+                }
+            }
+
+            document.getElementById("out4").innerText = `Vowels: ${v}, Consonants: ${c}`;
+        }
+
+        function q5() {
+            let str = "I love Indai";
+            let res = str.replace("Indai", "India");
+            document.getElementById("out5").innerText = res;
+        }
+
+        function q6() {
+            let arr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+            let res = arr.filter(n => n > 5);
+            document.getElementById("out6").innerText = res;
+        }
+
+        function q7() {
+            const students = [
+                { name: "Ram", scores: [80, 70, 60] },
+                { name: "Mohan", scores: [80, 70, 90] },
+                { name: "Sai", scores: [60, 70, 80] },
+                { name: "Hemang", scores: [90, 90, 80, 80] }
+            ];
+
+            let res = students.map(s => {
+                let total = s.scores.reduce((a, b) => a + b, 0);
+                return { name: s.name, average: total / s.scores.length };
+            });
+
+            document.getElementById("out7").innerText = JSON.stringify(res);
+        }
+
+        function q8() {
+            let num = 456;
+
+            while (num >= 10) {
+                num = num.toString().split("").reduce((a, b) => a + Number(b), 0);
+            }
+
+            document.getElementById("out8").innerText = num;
+        }
+
+        function q9() {
+            let str = "This is a sample paragraph for counting words";
+            let count = str.trim().split(/\s+/).length;
+            document.getElementById("out9").innerText = count;
+        }
+
+        function q10() {
+            let str = "Hello";
+            let res = str.split("").reverse().join("");
+            document.getElementById("out10").innerText = res;
+        }
+
+        function q11() {
+            const students = {
+                student1: { subject1: 44, subject2: 56, subject3: 87, subject4: 97, subject5: 37 },
+                student2: { subject1: 44, subject2: 56, subject3: 87, subject4: 97, subject5: 37 },
+                student3: { subject1: 44, subject2: 56, subject3: 87, subject4: 97, subject5: 37 }
+            };
+
+            let res = Object.entries(students).map(([key, val]) => {
+                let marks = Object.values(val);
+                let total = marks.reduce((a, b) => a + b, 0);
+                return { [key]: { average: Math.floor(total / marks.length) } };
+            });
+
+            document.getElementById("out11").innerText = JSON.stringify(res);
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .logo img {
+            height: 50px;
+            object-fit: contain;
+        }
+        .nav-bar {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        .nav-bar ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-bar li {
+            margin-left: 20px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+        .top-links {
+            display: flex;
+            /* justify-content: space-between;
+            align-items: center; */
+        }
+        .icon {
+            vertical-align: middle;
+        }
+        .menu-bar {
+            background-color: #afafaf;
+            /* padding: 10px 20px; */
+        }
+        .menu-bar ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-bar a {
+            display: block;
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .menu-bar a:hover {
+            /* text-decoration: underline; */
+            background-color: aliceblue;
+        }
+        .main-content {
+            margin: 25px;
+            display: flex;
+        }
+        .sidebar {
+            width: 490px;
+            padding: 20px;
+            background-color: #e0e0e0;
+            margin-right: 20px;
+        }
+        .sidebar ul a {
+            display: block;
+            padding: 10px 0;
+            color: black;
+            text-decoration: none;
+        }
+        .hero-section {
+            padding: 50px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .item-container {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <header class="top-section">
+        <nav class="nav-bar">
+            <ul>
+                <li class="logo">
+                    <img src="/assets/logo (2).png" alt="Company Logo">
+                </li>
+                <div class="top-links">
+                    <li>
+                        
+                        <a href="#">
+                            <img class="icon" width="25px" height="25px" src="/assets/facebook-icon.webp" alt="Facebook">
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="icon" width="25px" height="25px" src="/assets/instagram-icon.webp" alt="Instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="icon" width="20px" src="/assets/twitter-icon.png" alt="Twitter">
+                            Twitter
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <nav class="menu-bar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <section class="sidebar">
+                <h2>Sidebar</h2>
+                Customize this sidebar with your own content, such as links, images, or any other information you'd like to display.
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </section>
+            <section class="hero-section">
+                <h1>Welcome to DriveEase</h1>
+                <p>Your one-stop destination for renting premium and affordable cars!</p>
+            
+                <div class="container">
+            
+                    <div class="item-container">
+                        <h2>Luxury Sedan</h2>
+                        <img src="/assets/car1.jpg" alt="Luxury Sedan" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+                        <p>Experience comfort and elegance with our luxury sedans, perfect for business trips and city rides.</p>
+                    </div>
+            
+                    <div class="item-container">
+                        <h2>Family SUV</h2>
+                        <img src="/assets/car2.jpg" alt="Family SUV" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+                        <p>Spacious and powerful SUVs designed for family trips, offering safety and comfort on long journeys.</p>
+                    </div>
+            
+                    <div class="item-container">
+                        <h2>Sports Car</h2>
+                        <img src="/assets/car3.jpg" alt="Sports Car" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
+                        <p>Feel the thrill with our high-performance sports cars, built for speed, style, and excitement.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 DriveEase. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Questions & Answers</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f3;
+            color: #1a1a1a;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .box {
+            background: #f5f6f7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .question {
+            color: #38bdf8;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .answer {
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Assignment</h1>
+
+    <div id="output"></div>
+
+    <script>
+        const outputDiv = document.getElementById("output");
+
+        function display(question, answer) {
+            const div = document.createElement("div");
+            div.className = "box";
+            div.innerHTML = `
+        <div class="question">${question}</div>
+        <div class="answer">${answer}</div>
+      `;
+            outputDiv.appendChild(div);
+        }
+
+        // 1. Scope
+        function scopeExample() {
+            var a = 10;
+            let b = 20;
+            const c = 30;
+
+            if (true) {
+                var a = 100;
+                let b = 200;
+                const c = 300;
+            }
+
+            return `var = ${a}, let = ${b}, const = ${c}`;
+        }
+
+        display(
+            "1. Difference between let, const, var",
+            scopeExample() + "<br>var → function scoped, let & const → block scoped"
+        );
+
+        // 2. Fruits
+        const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+        function getSecondFruit(arr) {
+            return arr[1];
+        }
+
+        display(
+            "2. Return second fruit from array",
+            getSecondFruit(fruits)
+        );
+
+        // 3. push & pop
+        function modifyArray(arr) {
+            arr.push("New Item");
+            arr.pop();
+            return arr;
+        }
+
+        display(
+            "3. Add and remove element using push() & pop()",
+            modifyArray([1, 2, 3]).join(", ")
+        );
+
+        // 4. map()
+        function squareNumbers(arr) {
+            return arr.map(num => num * num);
+        }
+
+        display(
+            "4. Square numbers using map()",
+            squareNumbers([1, 2, 3, 4, 5]).join(", ")
+        );
+
+        // 5. filter()
+        function getOddNumbers(arr) {
+            return arr.filter(num => num % 2 !== 0);
+        }
+
+        display(
+            "5. Filter odd numbers using filter()",
+            getOddNumbers([1, 2, 3, 4, 5, 6]).join(", ")
+        );
+
+        // 6. Object greeting
+        const person = {
+            name: "John",
+            age: 25,
+            occupation: "Developer"
+        };
+
+        function greet(p) {
+            return `Hello, my name is ${p.name}, I am ${p.age} years old and work as ${p.occupation}`;
+        }
+
+        display(
+            "6. Object greeting using properties",
+            greet(person)
+        );
+
+        // 7. Rectangle area
+        function getArea(rect) {
+            return rect.width * rect.height;
+        }
+
+        display(
+            "7. Calculate area of rectangle",
+            getArea({ width: 5, height: 10 })
+        );
+
+        // 8. Object keys
+        function getKeys(obj) {
+            return Object.keys(obj);
+        }
+
+        display(
+            "8. Get object keys",
+            getKeys({ a: 1, b: 2, c: 3 }).join(", ")
+        );
+
+        // 9. Merge objects
+        function mergeObjects(obj1, obj2) {
+            return Object.assign({}, obj1, obj2);
+        }
+
+        display(
+            "9. Merge two objects",
+            JSON.stringify(mergeObjects({ a: 1 }, { b: 2 }))
+        );
+
+        // 10. Reduce sum
+        function sumArray(arr) {
+            return arr.reduce((sum, num) => sum + num, 0);
+        }
+
+        display(
+            "10. Sum of array using reduce()",
+            sumArray([1, 2, 3, 4, 5])
+        );
+
+    </script>
+
+</body>
+
+</html>
